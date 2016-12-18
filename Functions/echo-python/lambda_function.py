@@ -5,30 +5,41 @@ print('Lambda cold-start...')
 from json import dumps, loads
 
 
+# Disable 'testing_locally' when deploying to AWS Lambda
+testing_locally = False
+verbose = False
+
+
+class CWLogs(object):
+    def __init__(self, context):
+        self.context = context
+
+    def event(self, message, event_prefix='LOG'):
+        print('{} RequestId: {}\t{}'.format(
+            event_prefix,
+            self.context.aws_request_id,
+            message
+        ))
+
+
 def lambda_handler(event, context):
-    print('LOG RequestId: {}\tResponse:\n\n{}'.format(
-        context.aws_request_id,
-        dumps(event, indent=4)
-    ))
+    log = CWLogs(context)
+
+    if verbose is True:
+        log.event('Event: {}'.format(dumps(event)))
 
     return event
 
 
-# Comment or remove everything below before deploying to Lambda.
-def local_testing():
+def local_test():
     import context
 
     with open('event.json', 'r') as f:
         event = loads(f.read())
 
-    print("Event:\n\n{}\n\nFunction Output:\n".format(
-        dumps(
-            event,
-            indent=4
-        )
-    ))
+    print('\nFunction Log:\n')
 
     lambda_handler(event, context)
 
-
-local_testing()
+if testing_locally is True:
+    local_test()
