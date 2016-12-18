@@ -14,7 +14,7 @@ If you are new to using AWS Lambda, these Functions are for you.
 > Respond with the ingested event.
 
 ### Level 2
-These Functions require more in-depth knowledge of supporting AWS Services.
+These Functions require more in-depth knowledge of other AWS Services.
 
 **ses_inbound_forwarder-python**
 > Forward emails that are delivered to SES Inbound to an email address you choose.
