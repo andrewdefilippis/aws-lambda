@@ -32,7 +32,7 @@ The use of this Function is dependent on the configuration of SES Inbound and Ou
 
 * **lambda_function.py**
   * *The main application that is executed by AWS Lambda upon invocation.*
-  * **Note:** Before packaging this code and deploying to AWS Lambda, remove or comment the included code for testing locally.
+  * **Note:** Before packaging this code and deploying to AWS Lambda, set the variable `testing_locally` to `False`.
 
 * **event.json**
   * *Test JSON event data ingested by the main application.*
