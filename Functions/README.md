@@ -11,6 +11,7 @@
 | Beginner | **template-python** | *Example template for creating AWS Lambda Functions.* |
 | Beginner | **echo-python** | *Respond with the ingested event.* |
 | Intermediate | **ses_inbound_forwarder-python** | *Forward emails that are delivered to SES Inbound to an email address you choose.* |
+| Intermediate | **roll_the_dice-python** | *Roll the dice by going serverless and integrating this Function with API Gateway.*
 
 **Knowledge Level Explanation**
 * Beginner
