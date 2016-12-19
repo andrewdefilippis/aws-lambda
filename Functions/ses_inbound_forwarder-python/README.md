@@ -1,6 +1,10 @@
 # ses_inbound_forwarder-python
 
-Forward emails that are delivered to SES Inbound to an email address you choose.
+*Forward emails that are delivered to SES Inbound to an email address you choose.*
+
+----
+
+## Requirements
 
 This Function requires three variable changes:
 * Define the S3 bucket name and key prefix (Ex. 'users/' *Remember to include the trailing slash)
@@ -26,16 +30,16 @@ The use of this Function is dependent on the configuration of SES Inbound and Ou
 
 ## Includes
 
-**lambda_function.py**
-> The main application that is executed by AWS Lambda upon invocation.
-* **Note:** Before packaging this code and deploying to AWS Lambda, remove or comment the included code for testing locally.
+* **lambda_function.py**
+  * *The main application that is executed by AWS Lambda upon invocation.*
+  * **Note:** Before packaging this code and deploying to AWS Lambda, remove or comment the included code for testing locally.
 
-**event.json**
-> Test JSON event data ingested by the main application.
-* **NOTE:** This event is a duplicate of the **AWS Lambda Test Event** named `SES Email Receiving`, which can be viewed in the AWS Lambda Console under 'Actions > Configure test event', after creating your Function.
+* **event.json**
+  * *Test JSON event data ingested by the main application.*
+  * **NOTE:** This event is a duplicate of the **AWS Lambda Test Event** named `SES Email Receiving`, which can be viewed in the AWS Lambda Console under 'Actions > Configure test event', after creating your Function.
 
-**context.py**
-> An emulated AWS Lambda Python Context Object utilized by the main application.
+* **context.py**
+  * *An emulated AWS Lambda Python Context Object utilized by the main application.*
 
-**README.md**
-> It's what you are currently reading.
+* **README.md**
+  * *It's what you are currently reading.*

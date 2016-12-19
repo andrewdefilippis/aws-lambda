@@ -1,20 +1,21 @@
 # Functions
 
-AWS Lambda Functions that I have developed.
+*AWS Lambda Functions that I have developed.*
+
+----
 
 ## Includes
 
-### Level 1
-If you are new to using AWS Lambda, these Functions are for you.
+| Knowledge Level | Function Name | Description |
+| --- | :-----------: | ----------- |
+| Beginner | template-python | *Example template for creating AWS Lambda Functions.* |
+| Beginner | echo-python | *Respond with the ingested event.* |
+| Intermediate | ses_inbound_forwarder-python | *Forward emails that are delivered to SES Inbound to an email address you choose.* |
 
-**template-python**
-> Example template for creating AWS Lambda Functions.
-
-**echo-python**
-> Respond with the ingested event.
-
-### Level 2
-These Functions require more in-depth knowledge of other AWS Services.
-
-**ses_inbound_forwarder-python**
-> Forward emails that are delivered to SES Inbound to an email address you choose.
+**Knowledge Level Explanation**
+* Beginner
+  * *If you are new to using AWS Lambda, these Functions are for you.*
+* Intermediate
+  * *These Functions require more in-depth knowledge of other AWS Services.*
+* Advanced
+  * *Multiple AWS Services and/or external service integration knowledge is required.*
