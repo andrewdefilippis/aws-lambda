@@ -8,9 +8,9 @@
 
 | Knowledge Level | Function Name | Description |
 | --- | :-----------: | ----------- |
-| Beginner | template-python | *Example template for creating AWS Lambda Functions.* |
-| Beginner | echo-python | *Respond with the ingested event.* |
-| Intermediate | ses_inbound_forwarder-python | *Forward emails that are delivered to SES Inbound to an email address you choose.* |
+| Beginner | **template-python** | *Example template for creating AWS Lambda Functions.* |
+| Beginner | **echo-python** | *Respond with the ingested event.* |
+| Intermediate | **ses_inbound_forwarder-python** | *Forward emails that are delivered to SES Inbound to an email address you choose.* |
 
 **Knowledge Level Explanation**
 * Beginner
