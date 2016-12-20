@@ -1,12 +1,10 @@
-# Functions
+# Python
 
-*AWS Lambda Functions that I have developed.*
+*Python AWS Lambda Functions that I have developed.*
 
 ----
 
 ## Includes
-
-### Python
 
 | Knowledge Level | Function Name | Description |
 | --- | :-----------: | ----------- |
