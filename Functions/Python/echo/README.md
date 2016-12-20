@@ -1,4 +1,4 @@
-# echo-python
+# echo
 
 *Respond with the ingested event.*
 

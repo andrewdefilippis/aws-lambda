@@ -1,4 +1,4 @@
-# ses_inbound_forwarder-python
+# ses_inbound_forwarder
 
 *Forward emails that are delivered to SES Inbound to an email address you choose.*
 

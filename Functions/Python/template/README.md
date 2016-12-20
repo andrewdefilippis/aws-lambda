@@ -1,6 +1,6 @@
-# template-python
+# template
 
-*Example template for creating AWS Lambda Functions.*
+*Example template for creating Python AWS Lambda Functions.*
 
 ----
 

@@ -1,4 +1,4 @@
-# roll_the_dice-python
+# roll_the_dice
 
 *Roll the dice by going serverless and integrating this Function with API Gateway.*
 
