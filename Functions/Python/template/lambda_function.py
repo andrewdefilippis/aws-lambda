@@ -50,7 +50,7 @@ def lambda_handler(event, context):
     # Instantiate our CloudWatch logging class
     log = CWLogs(context)
 
-    if verbose is True:
+    if verbose:
         log.event('Event: {}'.format(dumps(event)))
 
     log.event('Hello World!')
@@ -70,6 +70,7 @@ def local_test():
     print('\nFunction Log:\n')
 
     lambda_handler(event, context)
+
 
 if testing_locally is True:
     local_test()
