@@ -16,7 +16,7 @@ class CWLogs(object):
     def __init__(self, context):
         """Define the instance of the context object.
 
-        :param context: Lambda context object
+        :param context: The Lambda context object.
         """
 
         self.context = context
@@ -25,8 +25,8 @@ class CWLogs(object):
         # type: (any, str) -> None
         """Print an event into the CloudWatch Logs stream for the Function's invocation.
 
-        :param message: The information to be logged (required)
-        :param event_prefix: The prefix that appears before the 'RequestId' (default 'LOG')
+        :param message: The information to be logged (required).
+        :param event_prefix: The prefix that appears before the 'RequestId' (default 'LOG').
         :return:
         """
 
@@ -42,14 +42,15 @@ class CWLogs(object):
 def lambda_handler(event, context):
     """AWS Lambda executes the 'lambda_handler' function on invocation.
 
-    :param event: Ingested JSON event object provided at invocation
-    :param context: Lambda context object, containing information specific to the invocation and Function
-    :return: Final response to AWS Lambda, and passed to the invoker if the invocation type is RequestResponse
+    :param event: Ingested JSON event object provided at invocation.
+    :param context: Lambda context object, containing information specific to the invocation and Function.
+    :return: Final response to AWS Lambda, and passed to the invoker if the invocation type is RequestResponse.
     """
 
     # Instantiate our CloudWatch logging class
     log = CWLogs(context)
 
+    # Log the event object provided to the Lambda Function at invocation
     if verbose:
         log.event('Event: {}'.format(dumps(event)))
 
