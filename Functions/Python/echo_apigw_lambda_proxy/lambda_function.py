@@ -39,6 +39,45 @@ class CWLogs(object):
         return None
 
 
+class APIGWProxy(object):
+    """Define the Lambda Proxy interaction with AWS API Gateway.
+    """
+
+    def __init__(self, log):
+        """Define the instance of the log object.
+        
+        "param log: CloudWatch Logs context object
+        """
+
+        self.log = log
+
+    def response(self, status_code, body_is_base64_encoded=False, headers=None, body=None):
+        # type: (int, bool, dict, str) -> dict
+        """Return an API Gateway Lambda Proxy response object.
+        
+        :param status_code: The response status code.
+        :param body_is_base64_encoded: Is the body a base64 encoded string?
+        :param headers: The response headers.
+        :param body: The response body.
+        :return: An API Gateway Lambda Proxy response object.
+        """
+
+        response_object = {'statusCode': int(status_code)}
+
+        if headers is not None:
+            response_object['headers'] = dict(headers)
+
+        if body is not None:
+            response_object['body'] = str(body)
+            response_object['isBase64Encoded'] = bool(body_is_base64_encoded)
+
+        # Log the API Gateway Lambda Proxy response object
+        if verbose:
+            self.log.event('Response: {}'.format(dumps(response_object)))
+
+        return response_object
+
+
 def lambda_handler(event, context):
     """AWS Lambda executes the 'lambda_handler' function on invocation.
 
@@ -50,29 +89,22 @@ def lambda_handler(event, context):
     # Instantiate our CloudWatch logging class
     log = CWLogs(context)
 
+    # Instantiate our API Gateway Lambda Proxy class
+    apigw = APIGWProxy(log)
+
+    # Log the event object provided to the Lambda Function at invocation
     if verbose:
         log.event('Event: {}'.format(dumps(event)))
 
-    # Define the response values
-    status_code = 200
-    headers = {
-        'Content-Type': 'application/json'
-    }
-    body = dumps(event)
-    body_is_base64_encoded = False
-
-    # Build the APIGW Lambda Proxy response
-    apigw_lambda_proxy_response = {
-        'statusCode': int(status_code),
-        'headers': dict(headers),
-        'body': str(body),
-        'isBase64Encoded': bool(body_is_base64_encoded)
-    }
-
-    if verbose:
-        log.event('Response: {}'.format(dumps(apigw_lambda_proxy_response)))
-
-    return apigw_lambda_proxy_response
+    # Return a Lambda Proxy API response to API Gateway
+    return apigw.response(
+        status_code=200,
+        headers={
+            'Content-Type': 'application/json'
+        },
+        body=dumps(event),
+        body_is_base64_encoded=False
+    )
 
 
 def local_test():
