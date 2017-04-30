@@ -1,20 +1,20 @@
 """Created By: Andrew Ryan DeFilippis"""
 
-from inspect import stack, getmodule
-from uuid import uuid4 as uuid
 from random import randrange
+from uuid import uuid4 as uuid
+
+import os
 
 # Setup for retrieving the Function name (from the top-lvl dir name)
-frame = stack()[1]
-module = getmodule(frame[0])
+file_path = os.path.realpath(__file__)
 
-aws_request_id = uuid()
-function_name = module.__file__.split('/')[-2].split('.')[0]
+aws_request_id = str(uuid())
+function_name = file_path.split('/')[-2].split('.')[0]
 function_version = '$LATEST'
 invoked_function_arn = 'arn:aws:lambda:us-west-2:123412341234:function:{}'.format(function_name)
 memory_limit_in_mb = '128'
 log_group_name = '/aws/lambda/{}'.format(function_name)
-log_stream_name = '2016/12/15/[$LATEST]{}'.format(('%032x' % randrange(16**32))[:32])
+log_stream_name = '2016/12/15/[$LATEST]{}'.format(('%032x' % randrange(16 ** 32))[:32])
 
 
 class identity:
