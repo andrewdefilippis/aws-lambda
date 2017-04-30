@@ -72,5 +72,5 @@ def local_test():
     lambda_handler(event, context)
 
 
-if testing_locally is True:
+if testing_locally:
     local_test()
