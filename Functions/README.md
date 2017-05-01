@@ -14,7 +14,8 @@
 | Beginner | **echo** | *Respond with the ingested event.* |
 | Beginner | **echo_apigw_lambda_proxy** | *Respond with the ingested API Gateway Lambda Proxy event.* |
 | Intermediate | **ses_inbound_forwarder** | *Forward emails that are delivered to SES Inbound to an email address you choose.* |
-| Intermediate | **roll_the_dice** | *Roll the dice by going serverless and integrating this Function with API Gateway.*
+| Intermediate | **roll_the_dice** | *Roll the dice by going serverless and integrating this Function with API Gateway.* |
+| Intermediate | **url_shortening_service** | *Application logic for a serverless URL shortening service utilizing AWS API Gateway, Lambda, and DynamoDB.* |
 
 
 **Knowledge Level Explanation**
