@@ -200,6 +200,7 @@ class DynamoDBLogic(object):
         
         :return: URL stored in DynamoDB associated with the specified resource ID.
         """
+
         try:
             path = self.event['resource']
             url_id = path.split("/")[1]
