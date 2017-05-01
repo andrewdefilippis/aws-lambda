@@ -243,6 +243,7 @@ class DynamoDBLogic(object):
         :param url: URL to be stored in DynamoDB.
         :return: Unique resource ID associated with the URL.
         """
+
         try:
             url_id = id_gen(self.id_length)
             location = url
@@ -254,7 +255,7 @@ class DynamoDBLogic(object):
                     'ID': {'S': url_id},
                     'Endpoint': {'S': location}
                 },
-                ConditionExpression='attribute_not_exists(Endpoint)'
+                ConditionExpression='attribute_not_exists(ID)'
             )
 
             # Log the DynamoDB response object.
