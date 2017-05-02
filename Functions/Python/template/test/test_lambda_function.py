@@ -27,11 +27,11 @@ class TestLambdaFunction(unittest.TestCase):
         output = output.getvalue().strip()
 
         event = re.match((
-            "^LOG "
-            "RequestId: "
-            "[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}"
-            "\t"
-            "Message$"
+            '^LOG '
+            'RequestId: '
+            '[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}'
+            '\t'
+            'Message$'
         ), output)
 
         self.assertIsNotNone(event)
