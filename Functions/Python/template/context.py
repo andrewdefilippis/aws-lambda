@@ -9,7 +9,7 @@ import os
 file_path = os.path.realpath(__file__)
 
 aws_request_id = str(uuid())
-function_name = file_path.split('/')[-2].split('.')[0]
+function_name = file_path.split('/')[-2]
 function_version = '$LATEST'
 invoked_function_arn = 'arn:aws:lambda:us-west-2:123412341234:function:{}'.format(function_name)
 memory_limit_in_mb = '128'
