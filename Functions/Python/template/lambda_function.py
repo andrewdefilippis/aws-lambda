@@ -56,7 +56,9 @@ def lambda_handler(event, context):
 
     log.event('Hello World!')
 
-    return None
+    response = {'Hello': 'World!'}
+
+    return response
 
 
 def local_test():
@@ -70,8 +72,8 @@ def local_test():
 
     print('\nFunction Log:\n')
 
-    lambda_handler(event, context)
+    return lambda_handler(event, context)
 
 
-if testing_locally:
+if testing_locally and __name__ == '__main__':
     local_test()
